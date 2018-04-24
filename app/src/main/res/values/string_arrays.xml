@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spanner_entries_filter_time">
+        <item>All</item>
+        <item>Last Day</item>
+        <item>Last Week</item>
+        <item>Last Month</item>
+    </string-array>
+    <string-array name="spanner_entries_filter_sort">
+        <item>Feature Date</item>
+        <item>Appreciates</item>
+        <item>Views</item>
+        <item>Publish Date</item>
+    </string-array>
+</resources>

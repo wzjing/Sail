@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:clickable="true"
+    android:focusable="true"
+    tools:context=".project.projects.FilterFragment"
+    tools:showIn="@layout/activity_projects">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bg_round_rect_top_white"
+        android:clipToPadding="false"
+        android:minHeight="@dimen/filter_min_height"
+        android:paddingLeft="@dimen/padding_horizontal_normal"
+        android:paddingRight="@dimen/padding_horizontal_normal"
+        android:paddingTop="@dimen/padding_vertical_normal">
+
+        <TextView
+            android:id="@+id/filterFieldTv"
+            style="@style/FilterListTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_vertical_edge_normal"
+            android:text="@string/filterTypeField"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/filterTimeTv"
+            style="@style/FilterListTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/filterTypeTime"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/filterFieldTv" />
+
+        <TextView
+            android:id="@+id/filterSortTv"
+            style="@style/FilterListTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/filterTypeSort"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/filterTimeTv" />
+
+        <TextView
+            android:id="@+id/filterColorTv"
+            style="@style/FilterListTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/filterTypeColor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/filterSortTv" />
+
+        <android.support.constraint.Barrier
+            android:id="@+id/titleBarrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="end"
+            app:constraint_referenced_ids="filterFieldTv,filterTimeTv,filterSortTv,filterColorTv" />
+
+        <Space
+            android:id="@+id/contentSpace"
+            android:layout_width="24dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toEndOf="@id/titleBarrier" />
+
+        <Spinner
+            android:id="@+id/timeSpanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/spanner_entries_filter_time"
+            app:layout_constraintBottom_toBottomOf="@id/filterTimeTv"
+            app:layout_constraintStart_toEndOf="@id/contentSpace"
+            app:layout_constraintTop_toTopOf="@id/filterTimeTv" />
+
+        <com.infinitytech.sail.view.SpinnerView
+            android:id="@+id/sortSpanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/ic_selector"
+            android:elevation="2dp"
+            android:entries="@array/spanner_entries_filter_sort"
+            android:text="Feature Date"
+            app:layout_constraintBottom_toBottomOf="@id/filterSortTv"
+            app:layout_constraintStart_toEndOf="@id/contentSpace"
+            app:layout_constraintTop_toTopOf="@id/filterSortTv" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/finishBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_bottom_edge_with_navigation_bar"
+            android:src="@drawable/ic_done_black_24dp"
+            app:backgroundTint="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+
+</FrameLayout>

@@ -1,0 +1,120 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+    defaultConfig {
+        applicationId "com.infinitytech.sail"
+        minSdkVersion 21
+        targetSdkVersion 27
+        multiDexEnabled true
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation":
+                                     "$projectDir/schemas".toString()]
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+
+        enabled = true
+    }
+
+    dexOptions {
+        javaMaxHeapSize "2048M"
+        compileOptions.incremental = false
+    }
+
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
+    }
+
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    // Kotlin Basic
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+
+    // Basic Library
+//    implementation "com.google.guava:guava:$guava_version"
+    implementation "androidx.core:core-ktx:$ktx_version"
+    implementation "org.jetbrains.anko:anko:$anko_version"
+
+    // Android Support Libs
+    implementation "com.android.support:appcompat-v7:$android_lib_version"
+    implementation "com.android.support.constraint:constraint-layout:$constraint_version"
+    implementation "com.android.support:design:$android_lib_version"
+    implementation "com.android.support:cardview-v7:$android_lib_version"
+    implementation "com.android.support:palette-v7:$android_lib_version"
+    implementation "com.android.support:support-annotations:$android_lib_version"
+
+    implementation "com.android.support:support-v4:$android_lib_version"
+    kapt "com.android.databinding:compiler:$android_plugin_version"
+
+    // Android Architecture Lib
+    implementation "android.arch.lifecycle:common-java8:$lifecycle_version"
+    implementation "android.arch.lifecycle:extensions:$lifecycle_version"
+    implementation "android.arch.lifecycle:reactivestreams:$lifecycle_version"
+    implementation "android.arch.persistence.room:runtime:$room_version"
+    kapt "android.arch.persistence.room:compiler:$room_version"
+    implementation "android.arch.persistence.room:rxjava2:$room_version"
+
+    // koin
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-android-architecture:$koin_version"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+
+    // Retrofit Lib
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-jackson:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-scalars:$retrofit_version"
+
+    // ReactiveX Lib
+    implementation "io.reactivex.rxjava2:rxkotlin:$rxkoltin_version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+
+    // Json Parser Lib
+    implementation "com.fasterxml.jackson.core:jackson-core:$jackson_version"
+    implementation "com.fasterxml.jackson.core:jackson-databind:$jackson_version"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:$jackson_version"
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version"
+
+    // Glide Lib
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    kapt "com.github.bumptech.glide:compiler:$glide_version"
+
+    // Test
+    androidTestImplementation("com.android.support.test.espresso:espresso-core:$espresso_version", {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testImplementation "junit:junit:$junit_version"
+    testImplementation "org.mockito:mockito-core:$mockito_version"
+}

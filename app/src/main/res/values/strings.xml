@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Sail</string>
+    <string name="hint_username">username</string>
+    <string name="hint_password">password</string>
+    <string name="authorizeButton">Authorize</string>
+    <string name="logo">Logo</string>
+
+    <!--authorization-->
+    <string name="client_id">o4g7Ui2fj8lsKn4pzC6ticLEEOgV3kOH</string>
+
+    <!--App Errors-->
+    <string name="error_connection_failed">connection failed</string>
+    <string name="menuHome">Home</string>
+
+
+    <string name="snackActionRetry">Retry</string>
+    <string name="shotsListPopTab">Pop</string>
+    <string name="shotsListRecentTab">Recent</string>
+    <string name="shotsListLikes">Likes</string>
+
+    <!--Image Content-->
+    <string name="imageViewContent">IMAGE</string>
+    <string name="imageButtonContent">BUTTON</string>
+
+    <!--Delete-->
+    <string name="menuContent">menu</string>
+    <string name="buttonContent">button</string>
+    <string name="imageContent">image</string>
+    <string name="buttonContentDescription">button</string>
+    <string name="homeTitle">Home</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="filterTitle">Filter</string>
+    <string name="filterTypeField">Field</string>
+    <string name="filterTypeTime">Time</string>
+    <string name="filterTypeSort">Sort</string>
+    <string name="filterTypeColor">Color</string>
+    <string name="buttonFollow">Follow</string>
+</resources>

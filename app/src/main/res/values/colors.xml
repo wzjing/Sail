@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#dedede</color>
+    <color name="colorAccent">#0091ea</color>
+
+    <color name="colorAccentDark">#0064b7</color>
+    <color name="colorAccentLight">#64c1ff</color>
+
+    <color name="colorIconLight">#333333</color>
+
+    <color name="colorTextNormal">#FF000000</color>
+    <color name="colorTextNormal800">#FF212121</color>
+    <color name="colorTextNormal600">#FF424242</color>
+
+    <color name="colorTextNormalLight">#FFFFFFFF</color>
+    <color name="colorTextNormalLight800">#FFCDCDCD</color>
+    <color name="colorTextNormalLight600">#FF989898</color>
+
+    <color name="colorBackground">#D5D7DB</color>
+
+    <!--Ripple-->
+    <color name="colorRipple">#D5D7DB</color>
+
+    <!--Stroke-->
+    <color name="colorAvatarStroke">#FFCDCDCD</color>
+    <color name="colorButtonStrokeBlack">#FF000000</color>
+
+    <!--State-->
+    <color name="colorStateWhite">#FFFFFFFF</color>
+    <color name="colorStateWhitePressed">#a3daff</color>
+</resources>

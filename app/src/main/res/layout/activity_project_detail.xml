@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:fitsSystemWindows="true"
+    tools:context=".project.projectdetail.ProjectDetailActivity">
+
+    <ImageButton
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/imageButtonContent"
+        android:src="@drawable/ic_arrow_back_black_24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/projectCoverIv"
+        android:layout_width="@dimen/detail_cover_width"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/white"
+        android:contentDescription="@string/imageViewContent"
+        android:elevation="8dp"
+        android:translationZ="5dp"
+        app:layout_constraintDimensionRatio="h,101:79"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/backBtn"
+        tools:src="@sample/cover" />
+
+    <Space
+        android:id="@+id/coverContentAnchor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/projectCoverIv"
+        app:layout_constraintEnd_toEndOf="@id/projectCoverIv"
+        app:layout_constraintStart_toStartOf="@id/projectCoverIv" />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:elevation="4dp"
+        android:minHeight="300dp"
+        android:paddingBottom="24dp"
+        android:paddingEnd="24dp"
+        android:paddingStart="24dp"
+        android:paddingTop="40dp"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/coverContentAnchor"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintWidth_max="@dimen/detail_content_width">
+
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/din"
+            android:gravity="start"
+            android:textColor="@color/colorTextNormal"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@sample/project.json/name" />
+
+        <TextView
+            android:id="@+id/descriptionTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/din"
+            android:gravity="start"
+            android:textColor="@color/colorTextNormal800"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleTv"
+            tools:text="@sample/project.json/description" />
+
+        <com.infinitytech.sail.view.AvatarView
+            android:id="@+id/avatarIv"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/descriptionTv"
+            tools:src="@sample/avatar" />
+
+        <TextView
+            android:id="@+id/ownerNameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/din"
+            android:textColor="@color/colorTextNormal"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@id/ownerCountryTv"
+            app:layout_constraintStart_toEndOf="@id/avatarIv"
+            tools:text="@sample/project.json/owner/name" />
+
+        <TextView
+            android:id="@+id/ownerCountryTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/colorTextNormal600"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            android:typeface="serif"
+            app:layout_constraintBottom_toBottomOf="@+id/avatarIv"
+            app:layout_constraintStart_toEndOf="@id/avatarIv"
+            tools:ignore="SmallSp"
+            tools:text="@sample/project.json/owner/country" />
+
+        <Button
+            android:id="@+id/followBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_button_follow"
+            android:drawableStart="@drawable/ic_add"
+            android:fontFamily="@font/din"
+            android:gravity="start|center_vertical"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:paddingEnd="4dp"
+            android:paddingStart="4dp"
+            android:text="@string/buttonFollow"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/avatarIv"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>

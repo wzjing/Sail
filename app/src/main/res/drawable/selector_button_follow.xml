@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="true" android:state_pressed="false">
+        <shape android:shape="rectangle">
+            <solid
+                android:color="@color/colorStateWhite" />
+            <stroke
+                android:width="@dimen/stroke_width_button"
+                android:color="@color/colorButtonStrokeBlack" />
+            <size
+                android:width="@dimen/follow_button_width"
+                android:height="@dimen/follow_button_height" />
+            <corners
+                android:radius="16dp" />
+        </shape>
+    </item>
+    <item android:state_enabled="true" android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid
+                android:color="@color/colorStateWhitePressed" />
+            <stroke
+                android:width="@dimen/stroke_width_button"
+                android:color="@color/colorButtonStrokeBlack" />
+            <size
+                android:width="@dimen/follow_button_width"
+                android:height="@dimen/follow_button_height" />
+            <corners
+                android:radius="16dp" />
+        </shape>
+    </item>
+</selector>

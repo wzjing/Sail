@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Text-->
+    <dimen name="text_size_menu">18sp</dimen>
+    <dimen name="text_size_normal">14sp</dimen>
+    <dimen name="text_size_title">18sp</dimen>
+    <dimen name="text_size_content">12sp</dimen>
+
+    <!--Layout-->
+    <dimen name="padding_horizontal_normal">16dp</dimen>
+    <dimen name="padding_vertical_normal">16dp</dimen>
+    <dimen name="margin_horizontal_edge_normal">16dp</dimen>
+    <dimen name="margin_vertical_edge_normal">16dp</dimen>
+    <dimen name="margin_bottom_edge_with_navigation_bar">64dp</dimen>
+    <dimen name="toolbar_space_element">12dp</dimen>
+    <dimen name="toolbar_space_edge_horizontal">16dp</dimen>
+
+    <!--Size-->
+    <dimen name="detail_cover_width">280dp</dimen>
+    <dimen name="detail_content_width">320dp</dimen>
+    <dimen name="filter_min_width">-1</dimen>
+    <dimen name="filter_min_height">300dp</dimen>
+    <dimen name="follow_button_width">82dp</dimen>
+    <dimen name="follow_button_height">26dp</dimen>
+
+    <!--Round Rect-->
+    <dimen name="card_radius">8dp</dimen>
+
+    <!--Elevation-->
+    <dimen name="elevation_card">8dp</dimen>
+    <dimen name="elevation_card_bottom_sheet">8dp</dimen>
+    <dimen name="elevation_toolbar">12dp</dimen>
+    <dimen name="elevation_button_normal">8dp</dimen>
+
+    <!--Stroke-->
+    <dimen name="stroke_width_button">1dp</dimen>
+</resources>
