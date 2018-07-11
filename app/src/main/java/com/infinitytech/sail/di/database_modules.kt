@@ -1,6 +1,6 @@
 package com.infinitytech.sail.di
 
-import android.arch.persistence.room.Room
+import androidx.room.Room
 import com.infinitytech.sail.data.source.local.AppDatabase
 import org.koin.dsl.module.applicationContext
 

@@ -2,12 +2,12 @@
 
 package com.infinitytech.sail.project.projectdetail
 
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.Observer
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v4.view.ViewCompat
-import android.support.v7.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
+import androidx.core.view.ViewCompat
+import androidx.appcompat.app.AppCompatActivity
 import android.transition.TransitionInflater
 import android.util.Log
 import com.bumptech.glide.load.DataSource
@@ -17,8 +17,8 @@ import com.bumptech.glide.request.target.Target
 import com.infinitytech.sail.R
 import com.infinitytech.sail.data.AvatarType
 import com.infinitytech.sail.data.CoverType
-import com.infinitytech.sail.util.glide.GlideApp
 import com.infinitytech.sail.util.extentions.onClick
+import com.infinitytech.sail.util.glide.SailGlide
 import kotlinx.android.synthetic.main.activity_project_detail.*
 import org.koin.android.ext.android.inject
 
@@ -46,7 +46,7 @@ class ProjectDetailActivity : AppCompatActivity() {
             finishAfterTransition()
         }
 
-        GlideApp.with(this)
+        SailGlide.with(this)
                 .load(url.value)
                 .onlyRetrieveFromCache(true)
                 .listener(object : RequestListener<Drawable> {
@@ -71,14 +71,14 @@ class ProjectDetailActivity : AppCompatActivity() {
 
     fun startViewModel(placeholder: Drawable?) {
         viewModel.getProject(id.value).observe(this@ProjectDetailActivity, Observer {
-            GlideApp.with(this@ProjectDetailActivity)
+            SailGlide.with(this@ProjectDetailActivity)
                     .load(it?.covers!![CoverType.SIZE_404] ?: return@Observer)
-                    .placeholder(placeholder)
                     .error(R.drawable.ic_glide_error)
                     .into(projectCoverIv)
+//                    .placeholder(placeholder)
             titleTv.text = it.name
             descriptionTv.text = it.description
-            GlideApp.with(this)
+            SailGlide.with(this)
                     .load(it.owners.first().images[AvatarType.SIZE_230])
                     .into(avatarIv)
             ownerNameTv.text = it.owners.first().displayName

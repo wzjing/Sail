@@ -1,25 +1,27 @@
 buildscript {
     ext {
         // Android
-        android_plugin_version = '3.1.2'
-        android_lib_version = '27.1.1'
-        constraint_version = '1.1.0'
-        lifecycle_version = '1.1.1'
-        room_version = '1.1.0-beta2'
+        plugin_version = '3.2.0-beta02'
+        androidx_version = '1.0.0-beta01'
+        constraintlayout_version = '1.1.2'
+        material_version = '1.0.0-beta01'
+        lifecycle_version = '2.0.0-beta01'
+        room_version = '2.0.0-beta01'
+        nav_version = '1.0.0-alpha02'
         // Kotlin
-        kotlin_version = '1.2.31'
-        anko_version = '0.10.4'
-        ktx_version = '0.3'
-        koin_version = '0.9.1'
+        kotlin_version = '1.2.41'
+        anko_version = '0.10.5'
+        ktx_version = '1.0.0-beta01'
+        koin_version = '1.0.0-beta-3'
         // Util
         rxkoltin_version = '2.2.0'
         rxandroid_version = '2.0.2'
         retrofit_version = '2.4.0'
-        jackson_version = '2.9.4'
-        glide_version = '4.6.1'
+        jackson_version = '2.9.5'
+        glide_version = '4.8.0-SNAPSHOT'
         // Test
         junit_version = '4.12'
-        espresso_version = '3.0.1'
+        espresso_version = '3.1.0-alpha1'
         mockito_version = '2.16.0'
     }
     repositories {
@@ -27,7 +29,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:$android_plugin_version"
+        classpath "com.android.tools.build:gradle:$plugin_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -39,6 +41,11 @@ allprojects {
         mavenCentral()
         maven { url "https://www.jitpack.io" }
         maven { url "https://dl.bintray.com/ekito/koin" }
+        maven {
+            name 'glide-snapshot'
+            url 'http://oss.sonatype.org/content/repositories/snapshots'
+        }
+
     }
 }
 

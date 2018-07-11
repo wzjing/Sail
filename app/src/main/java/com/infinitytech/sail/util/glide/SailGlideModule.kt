@@ -6,5 +6,5 @@ import com.bumptech.glide.module.AppGlideModule
 /**
  * Glide module
  */
-@GlideModule
+@GlideModule(glideName = "SailGlide")
 class SailGlideModule : AppGlideModule()

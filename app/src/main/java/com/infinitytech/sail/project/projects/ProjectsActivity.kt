@@ -14,24 +14,27 @@ import android.graphics.drawable.RippleDrawable
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.support.annotation.RequiresApi
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.annotation.RequiresApi
+import com.google.android.material.snackbar.Snackbar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.view.*
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.ImageView
 import androidx.core.animation.doOnEnd
 import androidx.core.animation.doOnStart
+import androidx.room.Room
+import androidx.room.RoomDatabase
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.infinitytech.sail.R
 import com.infinitytech.sail.data.CoverType
 import com.infinitytech.sail.data.ListProjectBean
+import com.infinitytech.sail.data.source.local.AppDatabase
 import com.infinitytech.sail.project.projectdetail.ProjectDetailActivity
 import com.infinitytech.sail.util.extentions.*
-import com.infinitytech.sail.util.glide.GlideApp
+import com.infinitytech.sail.util.glide.SailGlide
 import kotlinx.android.synthetic.main.activity_projects.*
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.support.v4.onRefresh
@@ -66,7 +69,7 @@ class ProjectsActivity : AppCompatActivity(), FilterFragment.OnFilterFinishListe
                     visibility = View.INVISIBLE
                 }
                 doOnEnd {
-                    fab.visibility = View.GONE
+                    fab.hide()
                     visibility = View.VISIBLE
                     ViewAnimationUtils.createCircularReveal(
                             this@with,
@@ -95,7 +98,7 @@ class ProjectsActivity : AppCompatActivity(), FilterFragment.OnFilterFinishListe
                 duration = 300
                 doOnEnd {
                     visibility = View.GONE
-                    fab.visibility = View.VISIBLE
+                    fab.show()
                     fabAnim.value.reverse()
                     removeAllListeners()
                 }
@@ -119,6 +122,9 @@ class ProjectsActivity : AppCompatActivity(), FilterFragment.OnFilterFinishListe
 //        @RequiresApi(Build.VERSION_CODES.M)
 //        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LOW_PROFILE
 //        window.statusBarColor = Color.RED
+
+        val dao = Room.inMemoryDatabaseBuilder(this, AppDatabase::class.java).build()
+        dao.projectDao()
         setContentView(R.layout.activity_projects)
 
         // Remove the bottom value(which is navigation bar height) from SystemWindowInsets
@@ -141,7 +147,7 @@ class ProjectsActivity : AppCompatActivity(), FilterFragment.OnFilterFinishListe
             filterLayout.visibility = View.VISIBLE
         }
 
-        refreshLayout.onRefresh {
+        refreshLayout.setOnRefreshListener {
             viewModel.refresh()
         }
 
@@ -205,7 +211,7 @@ class ProjectAdapter(private val projectList: List<ListProjectBean>)
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) =
             with((holder as ProjectViewHolder).shotIv) {
                 val project = projectList[position]
-                GlideApp.with(context)
+                SailGlide.with(context)
                         .load(project.covers[CoverType.SIZE_202])
                         .placeholder(ColorDrawable(with(project.colors.first()) {
                             Color.argb(0x5F, r, g, b)

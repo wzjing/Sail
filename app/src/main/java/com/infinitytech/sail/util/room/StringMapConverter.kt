@@ -1,6 +1,6 @@
 package com.infinitytech.sail.util.room
 
-import android.arch.persistence.room.TypeConverter
+import androidx.room.TypeConverter
 import android.util.Log
 import com.fasterxml.jackson.core.JsonProcessingException
 import com.fasterxml.jackson.databind.ObjectMapper
