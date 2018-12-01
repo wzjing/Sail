@@ -9,6 +9,7 @@ import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
 import org.koin.dsl.module.applicationContext
+import org.koin.dsl.module.module
 import retrofit2.CallAdapter
 import retrofit2.Retrofit
 import retrofit2.converter.jackson.JacksonConverterFactory
@@ -18,7 +19,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
  * Created by wzjing on 2018/1/8 at Designer.
  */
 
-val retrofit_module = applicationContext {
+val retrofit_module = module {
 
     factory {
         Log.d("web_modules", getProperty("client_id"))
