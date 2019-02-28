@@ -34,7 +34,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/backBtn"
-        tools:src="@sample/cover" />
+        tools:src="@sample/cover"
+        tools:srcCompat="@sample/cover"/>
 
     <Space
         android:id="@+id/coverContentAnchor"
@@ -98,7 +99,8 @@
             android:layout_marginTop="24dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/descriptionTv"
-            tools:src="@sample/avatar" />
+            tools:src="@sample/avatar"
+            tools:srcCompat="@sample/avatar" />
 
         <TextView
             android:id="@+id/ownerNameTv"

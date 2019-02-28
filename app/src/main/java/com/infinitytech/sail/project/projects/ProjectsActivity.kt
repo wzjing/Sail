@@ -34,7 +34,7 @@ import com.infinitytech.sail.data.ListProjectBean
 import com.infinitytech.sail.data.source.local.AppDatabase
 import com.infinitytech.sail.project.projectdetail.ProjectDetailActivity
 import com.infinitytech.sail.util.extentions.*
-import com.infinitytech.sail.util.glide.GlideApp
+import com.infinitytech.sail.util.glide.SailGlide
 import kotlinx.android.synthetic.main.activity_projects.*
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.support.v4.onRefresh
@@ -211,7 +211,7 @@ class ProjectAdapter(private val projectList: List<ListProjectBean>)
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) =
             with((holder as ProjectViewHolder).shotIv) {
                 val project = projectList[position]
-                GlideApp.with(context)
+                SailGlide.with(context)
                         .load(project.covers[CoverType.SIZE_202])
                         .placeholder(ColorDrawable(with(project.colors.first()) {
                             Color.argb(0x5F, r, g, b)

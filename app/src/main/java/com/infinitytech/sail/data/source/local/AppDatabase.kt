@@ -3,6 +3,7 @@ package com.infinitytech.sail.data.source.local
 import androidx.room.*
 import androidx.room.TypeConverters
 import com.infinitytech.sail.data.CollectionBean
+import com.infinitytech.sail.data.Person
 import com.infinitytech.sail.data.ProjectBean
 import com.infinitytech.sail.util.room.DateConverter
 import com.infinitytech.sail.util.room.StringArrayConverter
