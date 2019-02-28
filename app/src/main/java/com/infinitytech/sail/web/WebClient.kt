@@ -1,7 +1,7 @@
 package com.infinitytech.sail.web
 
-import android.support.annotation.IntRange
-import android.support.annotation.StringDef
+import androidx.annotation.IntRange
+import androidx.annotation.StringDef
 import com.infinitytech.sail.data.*
 import retrofit2.Call
 import retrofit2.http.GET

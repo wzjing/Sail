@@ -2,12 +2,12 @@
 
 package com.infinitytech.sail.project.projectdetail
 
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.Observer
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v4.view.ViewCompat
-import android.support.v7.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
+import androidx.core.view.ViewCompat
+import androidx.appcompat.app.AppCompatActivity
 import android.transition.TransitionInflater
 import android.util.Log
 import com.bumptech.glide.load.DataSource

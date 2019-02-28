@@ -8,7 +8,7 @@ import android.animation.StateListAnimator
 import android.content.Context
 import android.graphics.*
 import android.graphics.drawable.Drawable
-import android.support.annotation.ColorInt
+import androidx.annotation.ColorInt
 import android.util.AttributeSet
 import android.util.Log
 import android.view.Gravity

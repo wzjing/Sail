@@ -1,8 +1,7 @@
 package com.infinitytech.sail.data.source.local
 
-import android.arch.persistence.room.Database
-import android.arch.persistence.room.RoomDatabase
-import android.arch.persistence.room.TypeConverters
+import androidx.room.*
+import androidx.room.TypeConverters
 import com.infinitytech.sail.data.CollectionBean
 import com.infinitytech.sail.data.ProjectBean
 import com.infinitytech.sail.util.room.DateConverter
@@ -22,4 +21,6 @@ abstract class AppDatabase : RoomDatabase() {
 
     public abstract fun collectionDao(): CollectionDao
     public abstract fun projectDao(): ProjectDao
+
+    public abstract fun getPersonDao(): PersonDao
 }

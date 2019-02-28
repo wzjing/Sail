@@ -3,13 +3,10 @@ package com.infinitytech.sail.di
 import android.util.Log
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
-import com.infinitytech.sail.web.WebClient
 import com.infinitytech.sail.util.retrofit.StringConverterFactory
-import okhttp3.Interceptor
+import com.infinitytech.sail.web.WebClient
 import okhttp3.OkHttpClient
-import okhttp3.Response
-import org.koin.dsl.module.applicationContext
-import retrofit2.CallAdapter
+import org.koin.dsl.module.module
 import retrofit2.Retrofit
 import retrofit2.converter.jackson.JacksonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
@@ -18,7 +15,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
  * Created by wzjing on 2018/1/8 at Designer.
  */
 
-val retrofit_module = applicationContext {
+val retrofit_module = module {
 
     factory {
         Log.d("web_modules", getProperty("client_id"))

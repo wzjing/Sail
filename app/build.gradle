@@ -4,16 +4,15 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion "27.0.3"
+    compileSdkVersion 28
     defaultConfig {
         applicationId "com.infinitytech.sail"
         minSdkVersion 21
-        targetSdkVersion 27
+        targetSdkVersion 28
         multiDexEnabled true
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = ["room.schemaLocation":
@@ -21,15 +20,22 @@ android {
             }
         }
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            debuggable true
+            jniDebuggable true
+            renderscriptDebuggable true
+            minifyEnabled false
+            zipAlignEnabled false
+        }
     }
 
     dataBinding {
-
         enabled = true
     }
 
@@ -57,39 +63,50 @@ kotlin {
 }
 
 dependencies {
+    def support_version = '1.0.0'
+    def material_version = '1.0.0'
+    def koin_version = '1.0.2'
+    def room_version = '2.0.0'
+    def lifecycle_version = '2.0.0'
+    def jackson_version = '2.9.8'
+    def retrofit_version = '2.5.0'
+    def glide_version = '4.9.0'
+
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     // Kotlin Basic
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
-
-    // Basic Library
-//    implementation "com.google.guava:guava:$guava_version"
-    implementation "androidx.core:core-ktx:$ktx_version"
-    implementation "org.jetbrains.anko:anko:$anko_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1"
 
     // Android Support Libs
-    implementation "com.android.support:appcompat-v7:$android_lib_version"
-    implementation "com.android.support.constraint:constraint-layout:$constraint_version"
-    implementation "com.android.support:design:$android_lib_version"
-    implementation "com.android.support:cardview-v7:$android_lib_version"
-    implementation "com.android.support:palette-v7:$android_lib_version"
-    implementation "com.android.support:support-annotations:$android_lib_version"
+    implementation "androidx.core:core-ktx:1.0.1"
+    implementation "androidx.appcompat:appcompat:$support_version"
+    implementation "androidx.cardview:cardview:$support_version"
+    implementation "androidx.palette:palette:$support_version"
+    implementation "androidx.annotation:annotation:1.0.1"
 
-    implementation "com.android.support:support-v4:$android_lib_version"
-    kapt "com.android.databinding:compiler:$android_plugin_version"
+    // ConstraintLayout
+    implementation "androidx.constraintlayout:constraintlayout:1.1.3"
+
+    // Material Design
+    implementation "com.google.android.material:material:$material_version"
+
+    // DataBinding
+    kapt "androidx.databinding:databinding-compiler:$plugin_version"
 
     // Android Architecture Lib
-    implementation "android.arch.lifecycle:common-java8:$lifecycle_version"
-    implementation "android.arch.lifecycle:extensions:$lifecycle_version"
-    implementation "android.arch.lifecycle:reactivestreams:$lifecycle_version"
-    implementation "android.arch.persistence.room:runtime:$room_version"
-    kapt "android.arch.persistence.room:compiler:$room_version"
-    implementation "android.arch.persistence.room:rxjava2:$room_version"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+    kapt "android.arch.lifecycle:compiler:$lifecycle_version"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
 
     // koin
     implementation "org.koin:koin-android:$koin_version"
-    implementation "org.koin:koin-android-architecture:$koin_version"
-    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    implementation "org.koin:koin-android-scope:$koin_version"
+    implementation "org.koin:koin-android-viewmodel:$koin_version"
 
     // Retrofit Lib
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
@@ -98,8 +115,8 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-scalars:$retrofit_version"
 
     // ReactiveX Lib
-    implementation "io.reactivex.rxjava2:rxkotlin:$rxkoltin_version"
-    implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+    implementation "io.reactivex.rxjava2:rxkotlin:2.2.0"
+    implementation "io.reactivex.rxjava2:rxandroid:2.0.2"
 
     // Json Parser Lib
     implementation "com.fasterxml.jackson.core:jackson-core:$jackson_version"
@@ -112,9 +129,9 @@ dependencies {
     kapt "com.github.bumptech.glide:compiler:$glide_version"
 
     // Test
-    androidTestImplementation("com.android.support.test.espresso:espresso-core:$espresso_version", {
-        exclude group: 'com.android.support', module: 'support-annotations'
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.1.0", {
+        exclude group: 'androidx.annotation', module: 'annotation'
     })
-    testImplementation "junit:junit:$junit_version"
-    testImplementation "org.mockito:mockito-core:$mockito_version"
+    testImplementation "junit:junit:4.12"
+    testImplementation "org.mockito:mockito-core:2.16.0"
 }
